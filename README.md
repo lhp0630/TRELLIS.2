@@ -61,12 +61,13 @@ Data processing is streamlined for instant conversions that are fully **renderin
 - **Software**:   
   - The [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit-archive) is needed to compile certain packages. Recommended version is 12.4.  
   - [Conda](https://docs.anaconda.com/miniconda/install/#quick-command-line-install) is recommended for managing dependencies.  
+  - Optionally, [uv](https://docs.astral.sh/uv/) and [just](https://github.com/casey/just) can be used instead of Conda/`setup.sh` (see below).  
   - Python version 3.8 or higher is required. 
 
 ### Installation Steps
 1. Clone the repo:
     ```sh
-    git clone -b main https://github.com/microsoft/TRELLIS.2.git --recursive
+    git clone -b main https://github.com/lhp0630/TRELLIS.2.git --recursive
     cd TRELLIS.2
     ```
 
@@ -97,6 +98,25 @@ Data processing is streamlined for instant conversions that are fully **renderin
         --flexgemm              Install flexgemm
         --nvdiffrast            Install nvdiffrast
         --nvdiffrec             Install nvdiffrec
+    ```
+
+    Alternatively, install with [uv](https://docs.astral.sh/uv/) via `justfile` (creates a `.venv` instead of a conda env):
+    ```sh
+    just setup
+    source .venv/bin/activate
+    ```
+    List available recipes with `just --list`:
+    ```sh
+    Available recipes:
+        setup       # Full install
+        new-env     # Create uv venv + PyTorch
+        basic       # Install basic dependencies
+        flash-attn  # Install flash-attention
+        cumesh      # Install cumesh
+        o-voxel     # Install o-voxel
+        flexgemm    # Install flexgemm
+        nvdiffrast  # Install nvdiffrast
+        nvdiffrec   # Install nvdiffrec
     ```
 
 ## 📦 Pretrained Weights
