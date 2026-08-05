@@ -39,7 +39,7 @@ basic:
     #!/usr/bin/env bash
     set -euo pipefail
     just _require-venv
-    uv pip install imageio imageio-ffmpeg tqdm easydict opencv-python-headless ninja trimesh transformers gradio==6.0.1 tensorboard pandas lpips zstandard
+    uv pip install imageio imageio-ffmpeg tqdm easydict "opencv-python-headless>=4.10,<5" ninja trimesh transformers gradio==6.0.1 tensorboard pandas lpips zstandard
     uv pip install git+https://github.com/EasternJournalist/utils3d.git@9a4eb15e4021b67b12c460c7057d642626897ec8
     if command -v sudo >/dev/null 2>&1 && sudo -n true 2>/dev/null; then
         sudo apt install -y libjpeg-dev
